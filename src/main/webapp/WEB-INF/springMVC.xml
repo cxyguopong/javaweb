@@ -16,6 +16,15 @@
 
     <!-- 注册HandlerMapper、HandlerAdapter两个映射类 -->
     <mvc:annotation-driven />
+    
+    <mvc:interceptors>
+		<bean class="cli.interceptor.AllInterceptor2" />
+		<bean class="cli.interceptor.AllInterceptor"/>
+		<mvc:interceptor>
+		     <mvc:mapping path="/user/**" />  <!-- /user/** 可以匹配/user 而/user/*不行 -->
+		     <bean class="cli.interceptor.UserSecurity" />
+		</mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 访问静态资源 -->
     <!-- <mvc:resources location="/css/" mapping="/css/**"/>
