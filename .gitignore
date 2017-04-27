@@ -28,3 +28,7 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+#eclipse template
+.metadata
+.settings/
