@@ -31,6 +31,21 @@
     <mvc:resources location="/js/" mapping="/js/**"/>
     <mvc:resources location="/image/" mapping="/image/**"/> -->
     
+    <!-- 错误处理 -->
+    <!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView">
+            <value>/error</value>
+        </property>
+        
+        <property name="defaultStatusCode">
+            <value>500</value>
+        </property>
+        
+        <property name="warnLogCategory">
+            <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>
+        </property>
+    </bean> -->
+    
     <!-- 视图解析器 -->
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">

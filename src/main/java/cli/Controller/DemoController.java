@@ -26,7 +26,9 @@ public class DemoController {
     	return "homepage";
     }
     
-    //²âÊÔ ÊÇ·ñ¾²Ì¬ÎÄ¼þ±»À¹½Ø /css/style.css, /js/jquery.js
+   
+    
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ç·ï¿½Ì¬ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ /css/style.css, /js/jquery.js
 //    @RequestMapping(value="/*/*")
 //    public String index2(){
 //    	System.out.println("kakaduoduo");
