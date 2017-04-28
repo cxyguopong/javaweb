@@ -6,7 +6,7 @@
 
 <%@include file="tmpl/header.jsp" %>  
 
-<div class="alert alert-danger">Error !</div>
+<div class="alert alert-danger">Error ! </div>
 
 
 <script>

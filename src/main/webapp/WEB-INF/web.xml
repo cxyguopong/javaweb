@@ -7,7 +7,12 @@
   metadata-complete="true">
 
 	<display-name>Archetype Created Web Application</display-name>
-
+    
+    <context-param>
+        <param-name>test_init_name</param-name>
+        <param-value>test-init-value</param-value>
+    </context-param>
+    
     <filter>  
         <filter-name>characterEncodingFilter</filter-name>  
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
