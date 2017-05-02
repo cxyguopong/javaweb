@@ -11,7 +11,6 @@ ${param.user}
 
 选择的是:${paramValues.affect[0]}${paramValues.affect[1]}${paramValues.affect[2]}${paramValues.affect[3]}  
 
-
 <c:out value="paramValues.affect" />
 
 

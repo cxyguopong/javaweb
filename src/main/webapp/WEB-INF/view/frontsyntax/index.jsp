@@ -3,8 +3,9 @@
 
 <%@ page import="java.util.List,java.util.ArrayList" %>
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:import url="../tmpl/header.jsp" />  
 
@@ -95,6 +96,7 @@
             <td>\${pageContext}</td>
             <td>
                 \${pageContext.request.serverPort} = ${pageContext.request.serverPort} <br>
+                serverport: <% request.getAttribute("serverPort"); %><br>
                 \${pageContext.response} = ${pageContext.response} <br>
                 \${pageContext.out} = ${pageContext.out} <br>
                 \${pageContext.session} = ${pageContext.session} <br>
@@ -283,16 +285,105 @@
             </tr>
             
             <tr>
-                <td>&lt;c:url&gt; &lt;c:param&gt;</td>
+                <td>\${pageContext}</td>
                 <td>
-                    <c:url value="/index.jsp" var="myURL">
-					   <c:param name="trackingId" value="1234"/>
-					   <c:param name="reportType" value="summary"/>
-					</c:url>
-					<c:import url="${myURL}"/>
+                    ${requestScope.pwd}
+                    ${pwd} 
+                    
+                    ${pageContext.request.scheme}  
+                    
+                    <%=request.getAttribute("pwd") %>
+                    
+                    ${pageContext.request.contextPath}
+                    ${pageContext.request.characterEncoding}
                 </td>
             </tr>
             
+            <tr>
+                <td>&lt;c:url&gt; &lt;c:param&gt;</td>
+                <td>
+                    <c:url value="/first.jsp" var="myURL">
+                       <c:param name="trackingId" value="1234"/>
+                       <c:param name="reportType" value="summary"/>
+                    </c:url>
+                    <!--<c:import url="/index.jsp" />  -->
+                    <a href="${myURL}">链接地址</a> 
+                </td>
+            </tr>
+            
+            <tr>
+                <td>&lt;c:redirect url="http://www.yiibai.com"/&gt;</td>
+                <td>
+                        
+                </td>
+            </tr>
+            
+            <tr>
+                <td>&lt; fmt:formatNumber &gt;</td>
+                <td>
+                    <dl class="dl-horizontal">
+                        <dt>default</dt>
+                        <dd>
+                            <fmt:formatNumber value="1200000000" />
+                            <br>
+                            <fmt:formatNumber value="2500000" pattern="?"  maxIntegerDigits="20" minIntegerDigits="5" maxFractionDigits="6" minFractionDigits="3" var="num_1" />
+                            <br>
+                            echo ${num_1 }
+                        </dd> 
+                        
+                        <dt>CURRENCY</dt>
+                        <dd>
+                            <fmt:formatNumber value="1224500" type="currency" currencySymbol="钱-" groupingUsed="true" />
+                        </dd>
+                        
+                        <dt>PERCENT</dt>
+                        <dd><fmt:formatNumber value="0.5" type="PERCENT" /></dd>
+                        
+                    </dl>
+                
+                </td>
+            </tr>
+            
+            <tr>
+                <td>&lt; fmt:parseNumber &gt;</td>
+                <td>
+                    <dl class="dl-horizontal">
+                        <dt>integerOnly</dt>
+                        <dd>
+                            <fmt:parseNumber value="1200000.56" integerOnly="true" />
+                        </dd> 
+                    </dl>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>&lt; fmt:dateNumber &gt;</td>
+                <td>
+                    <c:set var="now" value="<%=new java.util.Date()%>" /> 
+                    ${now }<br>
+                    <fmt:formatDate value="${now }" type="date" /><br>
+                    <fmt:formatDate value="${now }" type="time" /><br>
+                    <fmt:formatDate type="both" value="${now}" /><br>
+                    <fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${now}" /><br>
+                    <fmt:formatDate type="both" dateStyle="MEDIUM" timeStyle="MEDIUM" value="${now}" /><br>
+                    <fmt:formatDate type="both" dateStyle="long" timeStyle="long" value="${now}" /><br>
+                    <fmt:formatDate type="both" dateStyle="full" timeStyle="full" value="${now}" /><br>
+                    
+                    <br><br>
+                    <p class="text-danger">custom format</p>
+                    <fmt:formatDate pattern="yyyy-MM-dd" value="${now}" /><br>
+                    <fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${now}" type="both" /><br>
+                    <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss z" value="${now}" type="both" />
+                </td>
+            </tr>
+            
+            <tr>
+                <td>&lt; fmt:parseDate &gt;</td>
+                <td>
+                    <c:set var="now1" value="2016/10/20" />
+                    <fmt:parseDate value="${now1}" dateStyle="short" timeStyle="short" type="both" />
+                </td>
+            </tr>
             
         </table>
         
