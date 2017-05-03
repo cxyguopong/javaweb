@@ -380,8 +380,10 @@
             <tr>
                 <td>&lt; fmt:parseDate &gt;</td>
                 <td>
-                    <c:set var="now1" value="2016/10/20" />
-                    <fmt:parseDate value="${now1}" dateStyle="short" timeStyle="short" type="both" />
+                    <c:set var="now" value="2016-1-25-12:35:24" />
+
+                    <fmt:parseDate value="${now}" var="parsedEmpDate" pattern="yyyy-MM-dd-H:m:s" />
+                    <p>Parsed Date: <fmt:formatDate value="${parsedEmpDate}" dateStyle="long" timeStyle="long" type="both"  /></p> 
                 </td>
             </tr>
             

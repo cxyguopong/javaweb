@@ -8,14 +8,17 @@ public class AllInterceptor implements WebRequestInterceptor {
 
 	public void afterCompletion(WebRequest arg0, Exception arg1) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("AllInterceptor afterCompletion , request over £¡");
+		System.out.println("AllInterceptor afterCompletion , request over ï¿½ï¿½");
 	}
 
 	public void postHandle(WebRequest arg0, ModelMap map) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("AllInterceptor postHandle ----------------------");
-		map.put("name", "wangxian");
-		map.put("sex", "male");
+		System.out.println("AllInterceptor postHandle ----------------------" + map);
+		
+		if (map!=null) {
+			map.put("name", "wangxian");
+			map.put("sex", "male");
+		}
 	}
 
 	public void preHandle(WebRequest request) throws Exception {
