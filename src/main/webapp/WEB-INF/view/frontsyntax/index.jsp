@@ -216,13 +216,13 @@
                     <%= 5/0 %> 
                     </c:catch>
                     
-	                <c:if test="${catchException != null}">
-	                 <p>
-	                     The Exception is : ${catchException} <br>
-	                     There is an exception : ${catchException.message}!
-	                 </p>
-	                 
-	                </c:if>
+                    <c:if test="${catchException != null}">
+                     <p>
+                         The Exception is : ${catchException} <br>
+                         There is an exception : ${catchException.message}!
+                     </p>
+                     
+                    </c:if>
                 </td>
                 
             </tr>
@@ -384,6 +384,42 @@
 
                     <fmt:parseDate value="${now}" var="parsedEmpDate" pattern="yyyy-MM-dd-H:m:s" />
                     <p>Parsed Date: <fmt:formatDate value="${parsedEmpDate}" dateStyle="long" timeStyle="long" type="both"  /></p> 
+                </td>
+            </tr>
+            
+            <tr>
+                <td>&lt; Array.length &gt;</td>
+                <td>
+                    <% 
+                    int[] inin = new int[9];  
+                    request.setAttribute("inin", inin);
+                    
+                    List<String> ls = new ArrayList<>();
+                    ls.add("为了");
+                    ls.add("防止");
+                    ls.add("世界");
+                    ls.add("被破坏");
+                    
+                    request.setAttribute("ls", ls);
+                    %>
+                    
+                    <c:if test="${inin[1] < 5 }">
+                    Array : ${inin }<br>
+                    charAt : ${'abcde'.charAt(0)}<br>
+                    subStr : ${"abcde".substring(0,3) }<br>
+                    
+                    <br>
+                    list.length : ${ls.size() }
+                    
+                    <br>
+                    <br>
+                    ${'B'.charAt(0) > 65 }
+                    
+                    </c:if>
+                    
+                    
+                     
+                    
                 </td>
             </tr>
             

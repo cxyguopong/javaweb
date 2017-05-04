@@ -55,5 +55,12 @@
         <property name="prefix" value="/WEB-INF/view/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+    
+    <!-- logical bean -->
+    <!-- test student bean -->
+    <bean id="_student" class="cli.pojo.Student"></bean>
+
+    <!-- student validate bean -->
+    <bean id="studentvalidator" class="cli.validator.Student"></bean>
 
 </beans>

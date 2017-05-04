@@ -11,20 +11,20 @@
    <table>
     <tr>
         <td>名称：</td>
-        <td>${name}</td>
+        <td>${stu.name}</td>
     </tr>
     <tr>
         <td>年龄：</td>
-        <td>${age}</td>
+        <td>${stu.age}</td>
     </tr>
     <tr>
         <td>编号：</td>
-        <td>${id}</td>
+        <td>${stu.id}</td>
     </tr>
     <tr>
         <td>学习的框架</td>
         <td>
-            <c:forEach var="item" items="${subject }">
+            <c:forEach var="item" items="${stu.subject }">
             <span class="text-primary">${item }</span>
             </c:forEach>
         </td>
@@ -33,9 +33,11 @@
     <tr>
         <td>性别</td>
         <td>
-            ${gender=="M"? "male":"remale"}
+            ${stu.gender.charAt(0)=="M".charAt(0) ? "male":"remale"} 
         </td>
     </tr>
+    <tr><td colspan="2" style="text-align:center">${zz }</td></tr>
+    
     
 </table>  
 </body>
