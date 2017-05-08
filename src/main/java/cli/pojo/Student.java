@@ -4,6 +4,13 @@ public class Student {
 	
 	private Integer age;
 	private String name;
+	private String sex;
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	private Integer id;
 	private String[] subject;
 	private String gender;

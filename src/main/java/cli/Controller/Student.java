@@ -48,7 +48,7 @@ public class Student {
 	@RequestMapping("add")
 	public String add( @Validated cli.pojo.Student student, BindingResult bindingResult, ModelMap model){
 		model.addAttribute(student);
-		if (bindingResult.hasErrors()) { 
+		if (bindingResult.hasErrors()) {
 			return "student/student";
 		}
 		return "student/result";
